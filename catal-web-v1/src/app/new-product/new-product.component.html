@@ -1,0 +1,34 @@
+<div class="container">
+<div class="col-md-9 col-sm-6 col-xs-12"><!--adapter la taille de l'écran à ordinateur, tablette et smartphone-->
+  <div class="panel panel-default">
+    <div class="panel-heading">Nouveau produit</div>
+    <div class="panel-body" *ngIf="mode === 1">
+      <form #form="ngForm" (ngSubmit)="onAjouter(form.value)">
+        <div class="form-group">
+          <label for="formulaire" class="control-label">Désignation</label> <br>
+          <input id="formulaire" type="text" name="designation" class="form-control" ngModel> <hr>
+          <label for="formulaire3" class="control-label">Quantité</label> <br>
+          <input id="formulaire3" type="text" name="quantite" class="form-control" ngModel> <hr>
+          <label for="formulaire2" class="control-label">Prix</label> <br>
+          <input id="formulaire2" type="text" name="price" class="form-control" ngModel> <br>
+          <button type="submit" class="btn btn-success">
+            <span class="glyphicon glyphicon-save"></span>
+            Enregistrer
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="panel-body" *ngIf="mode === 2">
+      <div class="form-group">
+        <label>ID :</label>&nbsp;<label>{{ currentProduct.id }}</label></div>
+      <div class="form-group">
+        <label>Désignation :</label>&nbsp;<label>{{ currentProduct.designation }}</label></div>
+      <div class="form-group">
+        <label>Quantité :</label>&nbsp;<label>{{ currentProduct.quantite }}</label></div>
+      <div class="form-group">
+        <label>Prix :</label>&nbsp;<label>{{ currentProduct.price}}</label></div>
+      <button class="btn btn-success" (click)="onNewProduct()">Nouveau Produit</button>
+      </div>
+    </div>
+  </div>
+</div>
